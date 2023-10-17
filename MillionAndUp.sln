@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.Test", "Millio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.Security", "MillionAndUp.Security\MillionAndUp.Security.csproj", "{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.API", "MillionAndUp.API\MillionAndUp.API.csproj", "{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

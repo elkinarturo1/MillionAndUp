@@ -1,4 +1,5 @@
 ﻿using MillionAndUp.DL.V1.Interfaces_CRUD;
+using MillionAndUp.DL.V1.Repositories.Property;
 using MillionAndUp.Entities.V1;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MillionAndUp.DL.V1.Repositories.Property
+namespace MillionAndUp.DL.V1
 {
     public class PropertyRepositorySQL : IPropertyRepository
     {
@@ -73,7 +74,7 @@ namespace MillionAndUp.DL.V1.Repositories.Property
             }
 
             return ds;
-          
+
         }
 
 
@@ -103,13 +104,13 @@ namespace MillionAndUp.DL.V1.Repositories.Property
             }
             catch (Exception ex)
             {
-                throw new Exception ("Error al insertar la propiedad en la base de datos",ex);
+                throw new Exception("Error al insertar la propiedad en la base de datos", ex);
             }
             finally
             {
                 sqlCommand.Parameters.Clear();
                 sqlCommand.Connection.Close();
-            }           
+            }
 
         }
 
