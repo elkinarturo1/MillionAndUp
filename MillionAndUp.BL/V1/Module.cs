@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MillionAndUp.BL.Security;
 using MillionAndUp.BL.V1.Services.Property;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace MillionAndUp.BL.V1
         private static void RegisterRepositories(ContainerBuilder builder)
         {
             builder.RegisterType<PropertyService>().As<IPropertyService>();
+            builder.RegisterType<UserService>().As<IUserService>();
         }
     }
 }

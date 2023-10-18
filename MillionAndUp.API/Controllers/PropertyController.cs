@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MillionAndUp.BL.V1.Services.Property;
 using MillionAndUp.Dtos.V1;
 using MillionAndUp.Dtos.V1.PropertiesDtos;
@@ -9,6 +10,7 @@ namespace MillionAndUp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PropertyController : ControllerBase
     {
 
