@@ -34,10 +34,8 @@ namespace MillionAndUp.API.Controllers
 
             try
             {
-
                 
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
-
                 foreach (var item in HttpContext.Request.Query)
                 {
                     parameters.Add("@" + item.Key, item.Value.ToString());

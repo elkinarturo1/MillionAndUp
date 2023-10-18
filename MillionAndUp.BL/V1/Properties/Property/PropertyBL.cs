@@ -9,20 +9,22 @@ namespace MillionAndUp.BL.V1.Properties.Property
     public class PropertyBL: IPropertyBL
     {
 
-        private readonly IMapper autoMapper;       
+        private readonly IMapper autoMapper;
+        IPropertyRepository propertyRepository;
 
-        public PropertyBL(IMapper p_autoMapper) {
-            autoMapper = p_autoMapper;            
+        public PropertyBL(IMapper p_autoMapper, IPropertyRepository p_propertyRepository)
+        {
+            autoMapper = p_autoMapper;
+            propertyRepository = p_propertyRepository;
         }
 
         public IEnumerable<PropertyEntity> accessData(Dictionary<string, object> parameters)
         {            
-            IEnumerable<PropertyEntity> data;
-            PropertyRepository propertyRepository = new PropertyRepository();
+            IEnumerable<PropertyEntity> data;           
 
             try
             {            
-                data = propertyRepository.AccesData(parameters);
+                data = propertyRepository.Read(parameters);
             }
             catch (Exception ex)
             {
@@ -36,8 +38,6 @@ namespace MillionAndUp.BL.V1.Properties.Property
 
         public void Create(PropertyDto propertyDto)
         {
-            
-            PropertyRepository propertyRepository = new PropertyRepository();
 
             try
             {

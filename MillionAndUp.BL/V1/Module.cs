@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MillionAndUp.BL
+namespace MillionAndUp.BL.V1
 {
     public class Module : Autofac.Module
     {
@@ -18,8 +18,7 @@ namespace MillionAndUp.BL
 
         private static void RegisterRepositories(ContainerBuilder builder)
         {
-            // TODO Implement repositories DI        
-            builder.RegisterType<PropertyBL>().As<IPropertyBL>(); 
+            builder.RegisterType<PropertyBL>().As<IPropertyBL>();
         }
     }
 }

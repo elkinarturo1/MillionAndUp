@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MillionAndUp.DL.V1.Repositories.Property
 {
-    public interface IPropertyRepository : IReadRepository, ICreateRepository<PropertyEntity>,   IUpdateRepository<PropertyEntity>
+    public interface IPropertyRepository : ICrudRepository<PropertyEntity>
     {
     }
 }

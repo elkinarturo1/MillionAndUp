@@ -11,18 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer()
-                .AddSwaggerGen()
-                .AddAutoMapper(typeof(Program));
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(Program));
 
 
 // Use and configure Autofac
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
-    containerBuilder
-        .RegisterModule<MillionAndUp.BL.Module>();        
-
+    containerBuilder.RegisterModule<MillionAndUp.BL.V1.Module>();
+    containerBuilder.RegisterModule<MillionAndUp.DL.V1.Module>();
 });
 
 
