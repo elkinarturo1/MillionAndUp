@@ -8,8 +8,8 @@ namespace MillionAndUp.Entities.V1
 {
     public class ParametersEntitiy
     {
-        public Dictionary<string, object> parameters;
-        public int page { get; set; }
+        public Dictionary<string, object> Parameters;
+        public int Page { get; set; }
         public int RowsCount { get; set; }       
     }
 }

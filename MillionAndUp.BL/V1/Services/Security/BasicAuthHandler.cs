@@ -56,9 +56,8 @@ namespace MillionAndUp.BL.V1.Services.Security
             }
 
             var claims = new Claim[]
-            {
-                new Claim(ClaimTypes.NameIdentifier,"id"),
-                new Claim(ClaimTypes.Name,"email"),
+            {              
+                new Claim(ClaimTypes.Name,"email")               
             };
 
             var identity = new ClaimsIdentity(claims, Scheme.Name);

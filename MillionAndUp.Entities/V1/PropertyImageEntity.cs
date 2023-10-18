@@ -8,9 +8,9 @@ namespace MillionAndUp.Entities.V1
 {
     public class PropertyImageEntity
     {
-        int IdPropertyImage { get; set; }
-        int IdProperty { get; set; }
-        string file { get; set; }
-        string Enabled { get; set; }
+        public int IdPropertyImage { get; set; }
+        public int IdProperty { get; set; }
+        public string File { get; set; }
+        public string Enabled { get; set; }
     }
 }

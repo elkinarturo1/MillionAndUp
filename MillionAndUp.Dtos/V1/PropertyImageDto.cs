@@ -10,7 +10,7 @@ namespace MillionAndUp.Dtos.V1
     {
         int IdPropertyImage { get; set; }
         int IdProperty { get; set; }
-        string file { get; set; }
+        string File { get; set; }
         string Enabled { get; set; }
     }
 }

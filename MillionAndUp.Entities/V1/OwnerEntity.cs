@@ -8,10 +8,10 @@ namespace MillionAndUp.Entities.V1
 {
     public class OwnerEntity
     {
-        int IdOwner { get; set; }
-        string Name { get; set; }
-        string Address { get; set; }
-        string Photo { get; set; }
-        string Birthday { get; set; }
+       public int IdOwner { get; set; }
+       public string Name { get; set; }
+       public string Address { get; set; }
+       public string Photo { get; set; }
+       public string Birthday { get; set; }
     }
 }

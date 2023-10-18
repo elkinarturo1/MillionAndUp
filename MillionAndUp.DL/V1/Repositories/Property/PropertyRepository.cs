@@ -16,38 +16,38 @@ namespace MillionAndUp.DL.V1.Repositories.Property
     {
 
         private string strConexion;
-        IUnit_Of_Work_Property Unit_OF_Work; 
+        IUnit_Of_Work_Property unit_of_work; 
 
-        public PropertyRepository(IUnit_Of_Work_Property p_Unit_OF_Work)
+        public PropertyRepository(IUnit_Of_Work_Property p_unit_of_work)
         {
             strConexion = Resources.strConexion;
-            Unit_OF_Work = p_Unit_OF_Work;
+            unit_of_work = p_unit_of_work;
         }
 
 
         public void Create(PropertyEntity entity)
         {
-            Unit_OF_Work.Modify("sp_Property_Insert", entity);
+            unit_of_work.Modify("sp_Property_Insert", entity);
         }      
 
 
         public List<PropertyEntity> Read(Dictionary<string, object> parameters)
         {
             List<PropertyEntity> lstData = new List<PropertyEntity>();
-            lstData = Unit_OF_Work.Read("sp_Property_Select", parameters);
+            lstData = unit_of_work.Read("sp_Property_Select", parameters);
             return lstData;
         }        
 
 
         public void Update(PropertyEntity propertyEntity)
         {
-            Unit_OF_Work.Modify("sp_Property_Update", propertyEntity);
+            unit_of_work.Modify("sp_Property_Update", propertyEntity);
         }
 
 
         public void Delete(int id)
         {
-            Unit_OF_Work.Delete("sp_Property_Delete", id);
+            unit_of_work.Delete("sp_Property_Delete", id);
         }
       
     }
