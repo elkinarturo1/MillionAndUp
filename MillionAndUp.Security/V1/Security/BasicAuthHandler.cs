@@ -4,18 +4,16 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace MillionAndUp.BL.Security
+namespace MillionAndUp.Security.V1.Security
 {
     public class BasicAuthHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-
         private IUserService _userService;
 
         public BasicAuthHandler(IOptionsMonitor<AuthenticationSchemeOptions> options,
@@ -40,7 +38,7 @@ namespace MillionAndUp.BL.Security
             {
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
                 var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
-                var credenciales = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' },2);
+                var credenciales = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);
                 var email = credenciales[0];
                 var pass = credenciales[1];
                 result = _userService.IUser(email, pass);
@@ -68,7 +66,5 @@ namespace MillionAndUp.BL.Security
             return AuthenticateResult.Success(ticket);
 
         }
-
-
     }
 }

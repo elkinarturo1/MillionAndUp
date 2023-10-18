@@ -1,5 +1,4 @@
-﻿using MillionAndUp.DL.V1.Interfaces_CRUD;
-using MillionAndUp.Entities.V1;
+﻿using MillionAndUp.Entities.V1;
 using System;
 using System.Collections.Generic;
 using System.Linq;

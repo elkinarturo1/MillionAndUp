@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MillionAndUp.DL.V1.Repositories.Property;
-using MillionAndUp.Dtos.V1.PropertiesDtos;
+using MillionAndUp.Dtos.V1;
 using MillionAndUp.Entities.V1;
 using System;
 using System.Collections.Generic;

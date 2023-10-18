@@ -3,19 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.Entities", "MillionAndUp.Entities\MillionAndUp.Entities.csproj", "{50C69935-7926-42DD-8747-5C67A13F2D25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.Entities", "MillionAndUp.Entities\MillionAndUp.Entities.csproj", "{50C69935-7926-42DD-8747-5C67A13F2D25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.Dtos", "MillionAndUp.Dtos\MillionAndUp.Dtos.csproj", "{1AD6EFBC-9CD6-4CEA-A64B-677CBE85ABBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.Dtos", "MillionAndUp.Dtos\MillionAndUp.Dtos.csproj", "{1AD6EFBC-9CD6-4CEA-A64B-677CBE85ABBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.DL", "MillionAndUp.DL\MillionAndUp.DL.csproj", "{DC8473D6-DEAC-4E63-810A-4306FA7F5370}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.DL", "MillionAndUp.DL\MillionAndUp.DL.csproj", "{DC8473D6-DEAC-4E63-810A-4306FA7F5370}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.BL", "MillionAndUp.BL\MillionAndUp.BL.csproj", "{D16AB737-8A6F-4C38-9A4D-591465664AF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.BL", "MillionAndUp.BL\MillionAndUp.BL.csproj", "{D16AB737-8A6F-4C38-9A4D-591465664AF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.Test", "MillionAndUp.Test\MillionAndUp.Test.csproj", "{51FE1740-BCDB-4887-B958-FC0C8CD3B8E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.Test", "MillionAndUp.Test\MillionAndUp.Test.csproj", "{51FE1740-BCDB-4887-B958-FC0C8CD3B8E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.Security", "MillionAndUp.Security\MillionAndUp.Security.csproj", "{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionAndUp.API", "MillionAndUp.API\MillionAndUp.API.csproj", "{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillionAndUp.API", "MillionAndUp.API\MillionAndUp.API.csproj", "{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{51FE1740-BCDB-4887-B958-FC0C8CD3B8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51FE1740-BCDB-4887-B958-FC0C8CD3B8E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51FE1740-BCDB-4887-B958-FC0C8CD3B8E5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9293CF2F-20E7-4B63-A400-FFFFB10BA37E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA69E1D6-C3C3-459E-96C0-14DCBE21E170}.Release|Any CPU.ActiveCfg = Release|Any CPU

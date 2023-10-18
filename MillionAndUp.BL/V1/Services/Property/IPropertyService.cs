@@ -1,4 +1,4 @@
-﻿using MillionAndUp.Dtos.V1.PropertiesDtos;
+﻿using MillionAndUp.Dtos.V1;
 using MillionAndUp.Entities.V1;
 using System;
 using System.Collections.Generic;

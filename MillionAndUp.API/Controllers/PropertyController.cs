@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MillionAndUp.BL.V1.Services.Property;
 using MillionAndUp.Dtos.V1;
-using MillionAndUp.Dtos.V1.PropertiesDtos;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

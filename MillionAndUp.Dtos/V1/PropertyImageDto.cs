@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MillionAndUp.Dtos.V1.PropertiesImagesDtos
+namespace MillionAndUp.Dtos.V1
 {
     public class PropertyImageDto
     {

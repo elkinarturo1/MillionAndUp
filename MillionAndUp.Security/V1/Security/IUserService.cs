@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MillionAndUp.DL.V1.Interfaces_CRUD
+namespace MillionAndUp.Security.V1.Security
 {
-    public interface ICreateRepository<TEntity>
+    public interface IUserService
     {
-        void create(TEntity entity);
+        public bool IUser(string email, string pass);
     }
 }

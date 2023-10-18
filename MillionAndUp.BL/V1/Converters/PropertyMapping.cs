@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MillionAndUp.Dtos.V1.PropertiesDtos;
+using MillionAndUp.Dtos.V1;
 using MillionAndUp.Entities.V1;
 
 namespace MillionAndUp.BL.V1.Converters

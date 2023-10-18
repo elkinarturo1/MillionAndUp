@@ -5,8 +5,8 @@ using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.OpenApi.Models;
-using MillionAndUp.BL.Security;
 using MillionAndUp.BL.V1.Services.Property;
+using MillionAndUp.BL.V1.Services.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,6 +59,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     containerBuilder.RegisterModule<MillionAndUp.BL.V1.Module>();
     containerBuilder.RegisterModule<MillionAndUp.DL.V1.Module>();
+
 });
 
 

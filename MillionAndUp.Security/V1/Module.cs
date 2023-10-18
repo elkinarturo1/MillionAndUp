@@ -1,14 +1,12 @@
 ﻿using Autofac;
-using MillionAndUp.BL.V1.Services.Property;
-using MillionAndUp.BL.V1.Services.Security;
+using MillionAndUp.Security.V1.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MillionAndUp.BL.V1
+namespace MillionAndUp.Security.V1
 {
     public class Module : Autofac.Module
     {
@@ -19,7 +17,6 @@ namespace MillionAndUp.BL.V1
 
         private static void RegisterRepositories(ContainerBuilder builder)
         {
-            builder.RegisterType<PropertyService>().As<IPropertyService>();
             builder.RegisterType<UserService>().As<IUserService>();
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MillionAndUp.Dtos.V1.PropertiesTracesDtos
+namespace MillionAndUp.Dtos.V1
 {
     public class PropertyTraceDto
     {
