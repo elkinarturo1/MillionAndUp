@@ -4,10 +4,10 @@ using MillionAndUp.Entities.V1;
 
 namespace MillionAndUp.BL.V1.Converters
 {
-    public class PropertyProfieConverter : Profile
+    public class PropertyMapping : Profile
     {
 
-        public PropertyProfieConverter()
+        public PropertyMapping()
         {
             // Entity to Dto
             CreateMap<PropertyEntity, PropertyDto>();

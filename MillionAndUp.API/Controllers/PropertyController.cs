@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MillionAndUp.BL.V1.Properties.Property;
+using MillionAndUp.BL.V1.Services.Property;
 using MillionAndUp.Dtos.V1;
 using MillionAndUp.Dtos.V1.PropertiesDtos;
 
@@ -12,11 +12,11 @@ namespace MillionAndUp.API.Controllers
     public class PropertyController : ControllerBase
     {
 
-        IPropertyBL propertyBL;
+        IPropertyService service;
 
-        public PropertyController(IPropertyBL p_propertyBL)
+        public PropertyController(IPropertyService p_service)
         {
-            propertyBL = p_propertyBL;
+            service = p_service;
         }
 
         // GET: api/<PropertyController>
@@ -41,11 +41,11 @@ namespace MillionAndUp.API.Controllers
                     parameters.Add("@" + item.Key, item.Value.ToString());
                 }               
 
-                return Ok(propertyBL.accessData(parameters));
+                return Ok(service.Read(parameters));
             }
             catch (Exception ex)
             {
-                var message = new { Fail = "Ha ocurrido un error " + ex.Message };
+                var message = new { Fail = "Ha ocurrido algo! : " + ex.Message };
                 return StatusCode(500, message);
             }
            
@@ -58,25 +58,43 @@ namespace MillionAndUp.API.Controllers
         {
             try
             {
-                propertyBL.Create(dto);               
+                service.Create(dto);               
                 return Ok(new { Successfull = "Proceso Terminado" });
             }
             catch (Exception ex)
             {              
-                return StatusCode(500, new { Fail = "Ha ocurrido un error " + ex.Message });
+                return StatusCode(500, new { Fail = "Ha ocurrido algo! : " + ex.Message });
             }
         }
 
         // PUT api/<PropertyController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public IActionResult Put([FromBody] PropertyDto dto)
         {
+            try
+            {
+                service.Update(dto);
+                return Ok(new { Successfull = "Proceso Terminado" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Fail = "Ha ocurrido algo! : " + ex.Message });
+            }
         }
 
         // DELETE api/<PropertyController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            try
+            {
+                service.Delete(id);
+                return Ok(new { Successfull = "Proceso Terminado" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Fail = "Ha ocurrido algo ! : " + ex.Message });
+            }
         }
     }
 }

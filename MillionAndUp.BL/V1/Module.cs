@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using MillionAndUp.BL.V1.Properties.Property;
+using MillionAndUp.BL.V1.Services.Property;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace MillionAndUp.BL.V1
 
         private static void RegisterRepositories(ContainerBuilder builder)
         {
-            builder.RegisterType<PropertyBL>().As<IPropertyBL>();
+            builder.RegisterType<PropertyService>().As<IPropertyService>();
         }
     }
 }

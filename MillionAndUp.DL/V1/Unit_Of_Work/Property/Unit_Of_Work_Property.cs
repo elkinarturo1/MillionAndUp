@@ -48,8 +48,8 @@ namespace MillionAndUp.DL.V1.Unit_Of_Work.Property
 
             }
             catch (Exception ex)
-            {
-                throw new Exception("Ocurrio un error al ejecutar el comando en SQL", ex);
+            {                
+                throw new Exception("Error al ejecutar el comando en SQL " + ex);
             }
             finally
             {
@@ -126,7 +126,7 @@ namespace MillionAndUp.DL.V1.Unit_Of_Work.Property
             }
             catch (Exception ex)
             {
-                throw new Exception("Ocurrio un error al ejecutar el comando en SQL", ex);
+                throw new Exception("Ocurrio un error al eliminar los datos en SQL " + ex.Message);
             }
             finally
             {
