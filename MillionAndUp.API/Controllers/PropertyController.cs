@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MillionAndUp.BL.V1.Properties.Property;
 using MillionAndUp.Dtos.V1;
+using MillionAndUp.Dtos.V1.PropertiesDtos;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,7 +21,15 @@ namespace MillionAndUp.API.Controllers
 
         // GET: api/<PropertyController>
         [HttpGet]
-        public IActionResult Get(int page = 1, int rowsCount = 10)
+        public IActionResult Get(int page = 1,
+                                int rowsCount = 10,
+                                int IdProperty = -1,
+                                string Name = "-1",
+                                string Address = "-1",
+                                int Price = -1,
+                                string CodeInternal = "-1",
+                                int Year = -1
+                                )
         {
 
             try
@@ -32,17 +41,7 @@ namespace MillionAndUp.API.Controllers
                 foreach (var item in HttpContext.Request.Query)
                 {
                     parameters.Add("@" + item.Key, item.Value.ToString());
-                }
-
-                //parametersDTO.parameters.Add("@IdProperty",HttpContext.Request.Query["IdProperty"]);
-                //parametersDTO.parameters.Add("@Name", HttpContext.Request.Query["Name"]);
-                //parametersDTO.parameters.Add("@Address", HttpContext.Request.Query["Address"]);
-                //parametersDTO.parameters.Add("@Price", HttpContext.Request.Query["Price"]);
-                //parametersDTO.parameters.Add("@CodeInternal", HttpContext.Request.Query["CodeInternal"]);
-                //parametersDTO.parameters.Add("@Year", HttpContext.Request.Query["Year"]);
-
-                //parametersDTO.parameters.Add("@page", HttpContext.Request.Query["page"].ToString());
-                //parametersDTO.parameters.Add("@RowsCount", HttpContext.Request.Query["RowsCount"].ToString());
+                }               
 
                 return Ok(propertyBL.accessData(parameters));
             }
@@ -57,8 +56,17 @@ namespace MillionAndUp.API.Controllers
 
         // POST api/<PropertyController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] PropertyDto dto)
         {
+            try
+            {
+                propertyBL.Create(dto);               
+                return Ok(new { Successfull = "Proceso Terminado" });
+            }
+            catch (Exception ex)
+            {              
+                return StatusCode(500, new { Fail = "Ha ocurrido un error " + ex.Message });
+            }
         }
 
         // PUT api/<PropertyController>/5

@@ -21,19 +21,7 @@ namespace MillionAndUp.BL.V1.Properties.Property
             PropertyRepository propertyRepository = new PropertyRepository();
 
             try
-            {
-
-                //parametersDTO.parameters.Add("@IdProperty",HttpContext.Request.Query["IdProperty"]);
-                //parametersDTO.parameters.Add("@Name", HttpContext.Request.Query["Name"]);
-                //parametersDTO.parameters.Add("@Address", HttpContext.Request.Query["Address"]);
-                //parametersDTO.parameters.Add("@Price", HttpContext.Request.Query["Price"]);
-                //parametersDTO.parameters.Add("@CodeInternal", HttpContext.Request.Query["CodeInternal"]);
-                //parametersDTO.parameters.Add("@Year", HttpContext.Request.Query["Year"]);
-
-                //parametersDTO.parameters.Add("@page", HttpContext.Request.Query["page"].ToString());
-                //parametersDTO.parameters.Add("@RowsCount", HttpContext.Request.Query["RowsCount"].ToString());
-
-
+            {            
                 data = propertyRepository.AccesData(parameters);
             }
             catch (Exception ex)
@@ -44,7 +32,25 @@ namespace MillionAndUp.BL.V1.Properties.Property
             return data;
 
         }
-        
+
+
+        public void Create(PropertyDto propertyDto)
+        {
+            
+            PropertyRepository propertyRepository = new PropertyRepository();
+
+            try
+            {
+                var value = autoMapper.Map<PropertyEntity>(propertyDto);
+                propertyRepository.Create(value);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ha ocurrido un error al crear la propiedad " + ex.Message);
+            }            
+
+        }
+
 
     }
 }

@@ -8,12 +8,13 @@ namespace MillionAndUp.Dtos.V1.PropertiesDtos
 {
     public class PropertyDto
     {
-        int IdProperty { get; set; }
-        string Name { get; set; }
-        string Address { get; set; }
-        string Price { get; set; }
-        string CodeInternal { get; set; }
-        string Year { get; set; }
-        int IdOwner { get; set; }
+        public int IdProperty { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Price { get; set; }
+        public string CodeInternal { get; set; }
+        public string Year { get; set; }
+        public int IdOwner { get; set; }
+
     }
 }

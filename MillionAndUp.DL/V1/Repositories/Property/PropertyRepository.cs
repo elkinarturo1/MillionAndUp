@@ -13,13 +13,20 @@ using MillionAndUp.DL.Properties;
 namespace MillionAndUp.DL.V1.Repositories.Property
 {
     public class PropertyRepository
-    {       
+    {
+
+        private string strConexion;
+
+        public PropertyRepository()
+        {
+            strConexion = Resources.strConexion;
+        }
 
         public List<PropertyEntity> AccesData(Dictionary<string, object> parameters)
-        {             
+        {
 
             List<PropertyEntity> lstData = new List<PropertyEntity>();
-            SqlConnection sqlConnection = new SqlConnection(Resources.strConexion);
+            SqlConnection sqlConnection = new SqlConnection(strConexion);
             SqlCommand sqlCommand = new SqlCommand();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
@@ -30,7 +37,7 @@ namespace MillionAndUp.DL.V1.Repositories.Property
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.CommandText = "sp_Property_Select";
 
-                if (parameters != null )
+                if (parameters != null)
                 {
                     foreach (KeyValuePair<string, object> parameter in parameters)
                     {
@@ -39,7 +46,7 @@ namespace MillionAndUp.DL.V1.Repositories.Property
 
                         sqlCommand.Parameters.AddWithValue(parameter.Key, parameter.Value);
                     }
-                }                
+                }
 
                 sqlDataAdapter.SelectCommand = sqlCommand;
                 sqlDataAdapter.Fill(ds);
@@ -62,9 +69,47 @@ namespace MillionAndUp.DL.V1.Repositories.Property
 
         }
 
+
+
+        public void Create(PropertyEntity propertyEntity)
+        {
+            SqlConnection sqlConnection = new SqlConnection(strConexion);
+            SqlCommand sqlCommand = new SqlCommand();
+
+            try
+            {
+                sqlCommand.Connection = sqlConnection;
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.CommandText = "sp_Property_Insert";
+
+                sqlCommand.Parameters.AddWithValue("@IdProperty", propertyEntity.IdProperty);
+                sqlCommand.Parameters.AddWithValue("@Name", propertyEntity.Name);
+                sqlCommand.Parameters.AddWithValue("@Address", propertyEntity.Address);
+                sqlCommand.Parameters.AddWithValue("@Price", propertyEntity.Price);
+                sqlCommand.Parameters.AddWithValue("@CodeInternal", propertyEntity.CodeInternal);
+                sqlCommand.Parameters.AddWithValue("@Year", propertyEntity.Year);
+                sqlCommand.Parameters.AddWithValue("@IdOwner", propertyEntity.IdOwner);                
+
+                sqlCommand.Connection.Open();
+                sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrio un error al ejecutar el comando en SQL", ex);
+            }
+            finally
+            {
+                sqlCommand.Parameters.Clear();
+                sqlCommand.Connection.Close();
+            }
+
+        }
+
+
         public void ModifyData(ParametersEntitiy p_parametersEntity)
         {
-            SqlConnection sqlConnection = new SqlConnection("stringconexion");
+            SqlConnection sqlConnection = new SqlConnection(strConexion);
             SqlCommand sqlCommand = new SqlCommand();
 
             try
