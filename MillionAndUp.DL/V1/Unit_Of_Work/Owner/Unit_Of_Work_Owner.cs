@@ -41,7 +41,7 @@ namespace MillionAndUp.DL.V1.Unit_Of_Work.Owner
                 sqlCommand.Parameters.AddWithValue("@Name", OwnerEntity.Name);
                 sqlCommand.Parameters.AddWithValue("@Address", OwnerEntity.Address);
                 sqlCommand.Parameters.AddWithValue("@Photo", OwnerEntity.Photo);
-                sqlCommand.Parameters.AddWithValue("@Birthday", OwnerEntity.Birthday);
+                sqlCommand.Parameters.AddWithValue("@Birthday", DateTime.Parse(OwnerEntity.Birthday));
 
                 sqlCommand.Connection.Open();
                 sqlCommand.ExecuteNonQuery();
@@ -118,7 +118,7 @@ namespace MillionAndUp.DL.V1.Unit_Of_Work.Owner
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.CommandText = sp;
 
-                sqlCommand.Parameters.AddWithValue("@IdProperty", id);
+                sqlCommand.Parameters.AddWithValue("@IdOwner", id);
 
                 sqlCommand.Connection.Open();
                 sqlCommand.ExecuteNonQuery();

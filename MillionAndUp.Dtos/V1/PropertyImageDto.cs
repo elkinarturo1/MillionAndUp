@@ -8,9 +8,9 @@ namespace MillionAndUp.Dtos.V1
 {
     public class PropertyImageDto
     {
-        int IdPropertyImage { get; set; }
-        int IdProperty { get; set; }
-        string File { get; set; }
-        string Enabled { get; set; }
+       public int IdPropertyImage { get; set; }
+       public int IdProperty { get; set; }
+       public string File { get; set; }
+       public string Enabled { get; set; }
     }
 }

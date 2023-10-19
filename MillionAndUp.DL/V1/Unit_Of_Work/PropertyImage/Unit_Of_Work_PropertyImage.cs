@@ -118,7 +118,7 @@ namespace MillionAndUp.DL.V1.Unit_Of_Work.PropertyImage
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.CommandText = sp;
 
-                sqlCommand.Parameters.AddWithValue("@IdProperty", id);
+                sqlCommand.Parameters.AddWithValue("@IdPropertyImage", id);
 
                 sqlCommand.Connection.Open();
                 sqlCommand.ExecuteNonQuery();

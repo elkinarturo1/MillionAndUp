@@ -26,9 +26,7 @@ namespace MillionAndUp.API.Controllers
                                 int rowsCount = 10,
                                 int IdOwner = -1,
                                 string Name = "-1",
-                                string Address = "-1",
-                                Byte[] Photo = null,
-                                string Birthday = "-1"                               
+                                string Address = "-1"  
                                 )
         {
 

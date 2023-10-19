@@ -24,11 +24,8 @@ namespace MillionAndUp.API.Controllers
         public IActionResult Get(int page = 1,
                               int rowsCount = 10,
                               int IdPropertyTrace = -1,
-                              int IdProperty = -1,
-                              string DateSale = "-1",
-                              string Name = "-1",
-                              string Value = "-1",
-                              string Tax = "-1"
+                              int IdProperty = -1,                              
+                              string Name = "-1"
                               )
         {
 
@@ -68,8 +65,7 @@ namespace MillionAndUp.API.Controllers
         }
 
 
-        // PUT api/<PropertyTraceController>/5
-        [HttpPut("{id}")]
+        // PUT api/<PropertyTraceController>/5        
         [HttpPut]
         public IActionResult Put([FromBody] PropertyTraceDto dto)
         {

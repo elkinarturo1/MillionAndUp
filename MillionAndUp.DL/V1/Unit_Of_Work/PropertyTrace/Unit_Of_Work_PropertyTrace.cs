@@ -39,7 +39,7 @@ namespace MillionAndUp.DL.V1.Unit_Of_Work.PropertyTrace
                 sqlCommand.CommandText = sp;
 
                 sqlCommand.Parameters.AddWithValue("@IdPropertyTrace", PropertyTraceEntity.IdPropertyTrace);
-                sqlCommand.Parameters.AddWithValue("@DateSale", PropertyTraceEntity.DateSale);
+                sqlCommand.Parameters.AddWithValue("@DateSale", DateTime.Parse(PropertyTraceEntity.DateSale));
                 sqlCommand.Parameters.AddWithValue("@Name", PropertyTraceEntity.Name);
                 sqlCommand.Parameters.AddWithValue("@Value", PropertyTraceEntity.Value);
                 sqlCommand.Parameters.AddWithValue("@Tax", PropertyTraceEntity.Tax);
@@ -120,7 +120,7 @@ namespace MillionAndUp.DL.V1.Unit_Of_Work.PropertyTrace
                 sqlCommand.CommandType = CommandType.StoredProcedure;
                 sqlCommand.CommandText = sp;
 
-                sqlCommand.Parameters.AddWithValue("@IdProperty", id);
+                sqlCommand.Parameters.AddWithValue("@IdPropertyTrace", id);
 
                 sqlCommand.Connection.Open();
                 sqlCommand.ExecuteNonQuery();
