@@ -1,34 +1,30 @@
 ﻿using Autofac;
-using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MillionAndUp.API.Controllers;
-using MillionAndUp.BL.V1.Services.Property;
-using MillionAndUp.DL.V1.Repositories.Property;
+using MillionAndUp.BL.V1.Services.PropertyTrace;
 using MillionAndUp.Dtos.V1;
 using Moq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MillionAndUp.Test.Controllers
 {
-    public class PropertyControllerTest
+    public class PropertyTraceControllerTest
     {
 
-        private IPropertyService service;
-        private PropertyController controller;
+        private IPropertyTraceService service;
+        private PropertyTraceController controller;
         private HttpContext httpContext;
-        PropertyDto dto;
+        PropertyTraceDto dto;
 
         [SetUp]
         public void InitializeObjets()
         {
-            dto = new PropertyDto();
+            dto = new PropertyTraceDto();
 
             // Configura un contexto HTTP falso utilizando Moq
             var httpContextMock = new Mock<HttpContext>();
@@ -43,15 +39,15 @@ namespace MillionAndUp.Test.Controllers
             var container = new TestInyectionContainer().Container;
 
             // Utiliza el contenedor configurado para resolver las dependencias
-            service = container.Resolve<IPropertyService>();
+            service = container.Resolve<IPropertyTraceService>();
 
             // Crea el controlador y pasa la implementación de IPropertyService
-            controller = new PropertyController(service)
+            controller = new PropertyTraceController(service)
             {
                 ControllerContext = new ControllerContext { HttpContext = httpContextMock.Object }
             };
         }
-                              
+
 
         [Test]
         public void Get_OK()
@@ -66,27 +62,26 @@ namespace MillionAndUp.Test.Controllers
         public void Get_Quantity()
         {
             var result = (OkObjectResult)controller.Get();
-            Assert.IsInstanceOf<List<PropertyDto>>(result.Value);
-            var properies = (List<PropertyDto>)result.Value;
-            Assert.Greater(properies.Count,0);
+            Assert.IsInstanceOf<List<PropertyTraceDto>>(result.Value);
+            var properies = (List<PropertyTraceDto>)result.Value;
+            Assert.Greater(properies.Count, 0);
         }
 
 
 
         [Test]
         public void Post_OK()
-        {            
+        {
 
-            int id = DateTime.Now.Millisecond;            
+            int id = DateTime.Now.Millisecond;
             controller.Delete(id);
 
-            dto.IdProperty = id;
-            dto.Name = "Corner House";
-            dto.Address = "Gret Street";
-            dto.Price = "1536522";
-            dto.CodeInternal = "01005";
-            dto.Year = "2016";
-            dto.IdOwner = 1;
+            dto.IdPropertyTrace = id;
+            dto.IdProperty = 1;
+            dto.Name = "Trace" + DateTime.Now.Millisecond;
+            dto.Value = "1025622";
+            dto.Tax = "19";
+            dto.DateSale = "12/12/2021";
 
             var result = (OkObjectResult)controller.Post(dto);
             Assert.IsNotNull(result);
@@ -97,18 +92,20 @@ namespace MillionAndUp.Test.Controllers
 
         [Test]
         public void Post_Error()
-        {            
+        {
 
+            int id = DateTime.Now.Millisecond;
+            controller.Delete(id);
+
+            dto.IdPropertyTrace = id;
             dto.IdProperty = 1;
-            dto.Name = "Corner House";
-            dto.Address = "Gret Street";
-            dto.Price = "1536522";
-            dto.CodeInternal = "01005";
-            dto.Year = "2016";
-            dto.IdOwner = 2;
+            dto.Name = "Trace" + DateTime.Now.Millisecond;
+            dto.Value = "1025622";
+            dto.Tax = "19";
+            dto.DateSale = "123";
 
             var result = (ObjectResult)controller.Post(dto);
-            Assert.AreEqual(500, result.StatusCode);            
+            Assert.AreEqual(500, result.StatusCode);
 
         }
 
@@ -116,17 +113,14 @@ namespace MillionAndUp.Test.Controllers
 
         [Test]
         public void Put_OK()
-        {        
-            
-            string code = DateTime.Now.Second.ToString() + DateTime.Now.Millisecond;
+        {
 
-            dto.IdProperty = 2;
-            dto.Name = "Corner House";
-            dto.Address = "Gret Street";
-            dto.Price = "1536522";
-            dto.CodeInternal = code;
-            dto.Year = "2016";
-            dto.IdOwner = 2;
+            dto.IdPropertyTrace = 2;
+            dto.IdProperty = 1;
+            dto.Name = "Trace" + DateTime.Now.Millisecond;
+            dto.Value = "1025622";
+            dto.Tax = "20";
+            dto.DateSale = "10/09/2010";
 
             var result = (OkObjectResult)controller.Put(dto);
             Assert.IsNotNull(result);
@@ -144,18 +138,17 @@ namespace MillionAndUp.Test.Controllers
             Assert.IsNotNull(result);
             Assert.IsInstanceOf<OkObjectResult>(result);
 
+            dto.IdPropertyTrace = id;
+            dto.IdProperty = 1;
+            dto.Name = "Trace" + DateTime.Now.Millisecond;
+            dto.Value = "1025622";
+            dto.Tax = "19";
+            dto.DateSale = "04/08/2008";
 
-            dto.IdProperty = 2;
-            dto.Name = "Corner House";
-            dto.Address = "Gret Street";
-            dto.Price = "1536522";
-            dto.CodeInternal = "01005";
-            dto.Year = "2016";
-            dto.IdOwner = 2;
-
-            controller.Post(dto);          
+            controller.Post(dto);
 
         }
+
 
     }
 }

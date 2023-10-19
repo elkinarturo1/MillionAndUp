@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MillionAndUp.BL.V1.Converters
 {
-    internal class PropertyTraceMapping : Profile
+    public class PropertyTraceMapping : Profile
     {
 
         public PropertyTraceMapping()

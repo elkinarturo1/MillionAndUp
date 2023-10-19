@@ -24,8 +24,7 @@ namespace MillionAndUp.API.Controllers
         public IActionResult Get(int page = 1,
                                int rowsCount = 10,
                                int IdPropertyImage = -1,
-                               int IdProperty = -1,                               
-                               string Enabled = "-1"                               
+                               int IdProperty = -1           
                                )
         {
 
