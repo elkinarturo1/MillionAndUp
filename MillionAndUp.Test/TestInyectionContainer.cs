@@ -6,6 +6,14 @@ using MillionAndUp.BL.V1.Services.Owner;
 using MillionAndUp.BL.V1.Services.Property;
 using MillionAndUp.BL.V1.Services.PropertyImage;
 using MillionAndUp.BL.V1.Services.PropertyTrace;
+using MillionAndUp.DL.V1.Repositories.Owner;
+using MillionAndUp.DL.V1.Repositories.Property;
+using MillionAndUp.DL.V1.Repositories.PropertyImage;
+using MillionAndUp.DL.V1.Repositories.PropertyTrace;
+using MillionAndUp.DL.V1.Unit_Of_Work.Owner;
+using MillionAndUp.DL.V1.Unit_Of_Work.Property;
+using MillionAndUp.DL.V1.Unit_Of_Work.PropertyImage;
+using MillionAndUp.DL.V1.Unit_Of_Work.PropertyTrace;
 
 namespace MillionAndUp.Test
 {
@@ -44,8 +52,26 @@ namespace MillionAndUp.Test
             builder.RegisterType<PropertyImageController>();
             builder.RegisterType<PropertyTraceController>();
 
-            // Registra implementaciones específicas de pruebas o mocks si es necesario
-            // builder.Register...
+            builder.RegisterType<OwnerRepository>().As<IOwnerRepository>();
+            builder.RegisterType<PropertyRepository>().As<IPropertyRepository>();
+            builder.RegisterType<PropertyImageRepository>().As<IPropertyImageRepository>();
+            builder.RegisterType<PropertyTraceRepository>().As<IPropertyTraceRepository>();
+
+            builder.RegisterType<OwnerService>();
+            builder.RegisterType<PropertyService>();
+            builder.RegisterType<PropertyImageService>();
+            builder.RegisterType<PropertyTraceService>();
+
+
+            builder.RegisterType<Unit_Of_Work_Owner>().As<IUnit_Of_Work_Owner>();
+            builder.RegisterType<Unit_Of_Work_Property>().As<Unit_Of_Work_Property>();
+            builder.RegisterType<Unit_Of_Work_PropertyImage>().As<Unit_Of_Work_PropertyImage>();
+            builder.RegisterType<Unit_Of_Work_PropertyTrace>().As<Unit_Of_Work_PropertyTrace>();
+
+            builder.RegisterType<OwnerRepository>();
+            builder.RegisterType<PropertyRepository>();
+            builder.RegisterType<PropertyImageRepository>();
+            builder.RegisterType<PropertyTraceRepository>();
 
             Container = builder.Build();
         }

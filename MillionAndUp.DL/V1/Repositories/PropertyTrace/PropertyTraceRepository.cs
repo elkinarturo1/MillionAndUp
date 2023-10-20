@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MillionAndUp.DL.V1.Repositories.PropertyTrace
 {
-    internal class PropertyTraceRepository : IPropertyTraceRepository
+    public class PropertyTraceRepository : IPropertyTraceRepository
     {
 
         private string strConexion;

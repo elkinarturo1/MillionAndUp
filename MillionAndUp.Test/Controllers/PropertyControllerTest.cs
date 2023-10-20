@@ -99,7 +99,7 @@ namespace MillionAndUp.Test.Controllers
         public void Post_Error()
         {            
 
-            dto.IdProperty = 1;
+            dto.IdProperty = 2;
             dto.Name = "Corner House";
             dto.Address = "Gret Street";
             dto.Price = "1536522";

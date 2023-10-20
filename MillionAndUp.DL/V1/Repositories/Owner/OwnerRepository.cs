@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MillionAndUp.DL.V1.Repositories.Owner
 {
-    internal class OwnerRepository : IOwnerRepository
+    public class OwnerRepository : IOwnerRepository
     {
 
         private string strConexion;

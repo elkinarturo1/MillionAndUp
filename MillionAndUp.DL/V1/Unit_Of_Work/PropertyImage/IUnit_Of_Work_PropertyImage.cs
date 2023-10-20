@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MillionAndUp.DL.V1.Unit_Of_Work.PropertyImage
 {
-    internal interface IUnit_Of_Work_PropertyImage : IUnit_Of_Work<PropertyImageEntity>
+    public interface IUnit_Of_Work_PropertyImage : IUnit_Of_Work<PropertyImageEntity>
     {
     }
 }

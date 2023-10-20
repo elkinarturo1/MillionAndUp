@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MillionAndUp.DL.V1.Unit_Of_Work.PropertyTrace
 {
-    internal interface IUnit_Of_Work_PropertyTrace : IUnit_Of_Work<PropertyTraceEntity>
+    public interface IUnit_Of_Work_PropertyTrace : IUnit_Of_Work<PropertyTraceEntity>
     {
     }
 }

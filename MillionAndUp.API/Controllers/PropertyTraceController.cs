@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MillionAndUp.BL.V1.Services.PropertyImage;
 using MillionAndUp.BL.V1.Services.PropertyTrace;
 using MillionAndUp.Dtos.V1;
@@ -9,6 +10,7 @@ namespace MillionAndUp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PropertyTraceController : ControllerBase
     {
 

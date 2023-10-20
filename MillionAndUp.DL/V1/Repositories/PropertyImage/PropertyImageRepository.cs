@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MillionAndUp.DL.V1.Repositories.PropertyImage
 {
-    internal class PropertyImageRepository : IPropertyImageRepository
+    public class PropertyImageRepository : IPropertyImageRepository
     {
 
         private string strConexion;
